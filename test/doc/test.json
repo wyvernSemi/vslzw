@@ -1,0 +1,79 @@
+[{
+    "ip_name"     : "test",
+    "bus"         : "csr",
+    "addr_hi_bit" : "28",
+    "addr_lo_bit" : "24",
+    "description" : "This block defines the registers of the top level test bench",
+    "sub_blocks" : {
+        "uut"     :  {
+            "instance"    : "",
+            "process"     : "disabled",
+            "offset"      : "0x00000000"
+        },
+        "memory"     :  {
+            "instance"    : "",
+            "process"     : "disabled",
+            "offset"      : "0x08000000"
+        },
+        "local"     :  {
+            "instance"    : "",
+            "process"     : "enabled",
+            "offset"      : "0x18000000"
+        }
+    },
+    "registers" : {
+        "control" : {
+            "address"      : "0",
+            "width"        : "4",
+            "description"  : "Testbench simulation control",
+            "fields": {
+                "error"    : {
+                    "type"        : "w",
+                    "bit_len"     : "1",
+                    "reset"       : "0",
+                    "description" : "Set error state"
+                },
+                "do_stop"    : {
+                    "type"        : "w",
+                    "bit_len"     : "1",
+                    "reset"       : "0",
+                    "description" : "Request simulation to stop"
+                    
+                },
+                "do_finish"        : {
+                    "type"        : "w",
+                    "bit_len"     : "1",
+                    "reset"       : "0",
+                    "description" : "Request simulation to finish"
+                },
+                "partial_test"     : {
+                    "type"        : "w",
+                    "bit_len"     : "1",
+                    "reset"       : "0",
+                    "description" : "Flag that not all tests were run"
+                }
+            }
+        },
+        "time_count" : {
+            "address"      : "1",
+            "width"        : "32",
+            "type"         : "r",
+            "reset"        : "0",
+            "description"  : "System clock timing counter"
+        },
+        "timeout"  : {
+            "address"      : "2",
+            "width"        : "31",
+            "type"         : "w",
+            "reset"        : "10000000",
+            "description"  : "Simulation timeout (in clock cycles)"
+        },
+        "config_clk_freq"  : {
+            "address"      : "3",
+            "width"        : "9",
+            "type"         : "r",
+            "reset"        : "0",
+            "description"  : "Clock frequency configuration values"
+        }
+    }
+}]

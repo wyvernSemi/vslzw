@@ -1,0 +1,36 @@
+[{
+    "ip_name"     : "core",
+    "bus"         : "csr",
+    "addr_hi_bit" : "17",
+    "addr_lo_bit" : "15",
+    "addr_width"  : "5",
+    "description" : "This is the top level register description for the core block",
+    "sub_blocks" : {
+        "local"   :  {
+            "instance"    : "",
+            "process"     : "enabled",
+            "offset"      : "0x00000"
+        },
+        "slzw_codec" : {
+            "instance"    : "",
+            "process"     : "enabled",
+            "offset"      : "0x08000"
+        }
+    },
+    "registers" : {
+        "scratch" : {
+          "address"      : "0",
+          "width"        : "32",
+          "type"         : "w",
+          "reset"        : "0",
+          "description"  : "Test scratch register"
+        },
+        "clk_freq_mhz" : {
+          "address"      : "1",
+          "width"        : "10",
+          "type"         : "r",
+          "reset"        : "0",
+          "description"  : "Clock frequency parameter value in MHz"
+        }
+    }
+}]

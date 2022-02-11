@@ -1,0 +1,113 @@
+[{
+    "ip_name"     : "slzw_codec",
+    "bus"         : "csr",
+    "addr_width"  : "4",
+    "description" : "This block is the Top level slzw codec block",
+    "registers" : {
+        "control" : {
+            "address"      : "0",
+            "width"        : "5",
+            "description"  : "Control of interface",
+            "fields"       : {
+                "en_acp_win"    : {
+                    "type"        : "w",
+                    "bit_len"     : "1",
+                    "reset"       : "1",
+                    "description" : "Enable Advanced Coherency Port (ACP) window on AXI-4 bus"
+                },
+                "mode"    : {
+                    "type"        : "w",
+                    "bit_len"     : "1",
+                    "reset"       : "1",
+                    "description" : "Codec mode. 1 => compression, 0 => decompression"
+                },
+                "disable_flush"   : {
+                    "type"        : "w",
+                    "bit_len"     : "1",
+                    "reset"       : "0",
+                    "description" : "Disable flushing on last transfer"
+                },
+                "clr"    : {
+                    "type"        : "w0",
+                    "bit_len"     : "1",
+                    "reset"       : "0",
+                    "description" : "Clear codec state"
+                },
+                "start"    : {
+                    "type"        : "w0",
+                    "bit_len"     : "1",
+                    "reset"       : "0",
+                    "description" : "Start codec"
+                }
+            }
+        },
+        "status" : {
+            "address"      : "1",
+            "width"        : "2",
+            "description"  : "Status of interface",
+            "fields"       : {
+                "finished"    : {
+                    "type"        : "r",
+                    "bit_len"     : "1",
+                    "reset"       : "0",
+                    "description" : "Codec finished status"
+                },
+                "reserved"    : {
+                    "type"        : "rsv",
+                    "bit_len"     : "1",
+                    "description" : "Reserved"
+                }
+            }
+        },
+        "rx_start_addr" : {
+            "address"      : "2",
+            "width"        : "32",
+            "description"  : "Receive buffer transfer start address",
+            "fields"       : {
+                "reserved"   : {
+                    "type"        : "rsv",
+                    "bit_len"     : "2",
+                    "description" : "Reserved"
+                },
+                "word"    : {
+                    "type"        : "w",
+                    "bit_len"     : "30",
+                    "reset"       : "0",
+                    "description" : "Address word bits (31:2)"
+                }
+            }
+        },
+        "rx_len" : {
+            "address"      : "3",
+            "width"        : "32",
+            "type"         : "w",
+            "reset"        : "0",
+            "description"  : "Receive buffer transfer length"
+        },
+        "tx_start_addr" : {
+            "address"      : "4",
+            "width"        : "32",
+            "description"  : "Transmit buffer transfer start address",
+            "fields"       : {
+                "reserved"   : {
+                    "type"        : "rsv",
+                    "bit_len"     : "2",
+                    "description" : "Reserved"
+                },
+                "word"    : {
+                    "type"        : "w",
+                    "bit_len"     : "30",
+                    "reset"       : "0",
+                    "description" : "Address word bits (31:2)"
+                }
+            }
+        },
+        "tx_len" : {
+            "address"      : "5",
+            "width"        : "32",
+            "type"         : "w",
+            "reset"        : "0",
+            "description"  : "Transmit buffer transfer length"
+        }
+    }
+}]
